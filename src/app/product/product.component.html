@@ -1,7 +1,7 @@
 <div class="container">
   <h2>ProductManage</h2>
   <p>The .table class adds basic styling (light padding and horizontal dividers) to a table:</p>
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Thêm mới</button>
+  <a routerLink="/add-product" routerLinkActive="active">Thêm mới</a>
   <table class="table">
     <thead>
       <tr>
@@ -22,13 +22,13 @@
         <td>{{item.description}}</td>
         <td>{{item.seoAlias}}</td>
         <td>{{item.dateCreated |  date :'short'}}</td>
-        <button class="btn btn-primary" data-toggle="modal" data-target="#myModalEdit"(click)="loadDetail(item.id)" ><i class="fa fa-pencil-square-o" ></i></button>
+        <button class="btn btn-primary" data-toggle="modal" data-target="#myModal" (click)="loadDetail(item.id)" ><i class="fa fa-pencil-square-o" ></i></button>
         <button class="btn btn-danger"><i class="fa fa-trash" (click)="delete(item.id)"></i></button>
       </tr>
     </tbody>
   </table>
   <ul class="pagination justify-content-end" style="margin:20px 0">
-    <li class="page-item "><a class="page-link" href="#"(click)="pagePrevious()" [ngClass]="[ i + 1 == pageActive ? 'page-item active' : 'page-item ']" >Previous</a></li>
+    <li class="page-item "><a class="page-link" href="#"(click)="pagePrevious()" [ngClass]="[ pageActive > 1 ? 'page-item active' : 'page-item ']" >Previous</a></li>
       <li class="page-item"  [ngClass]="[ i + 1 == pageActive ? 'page-item active' : 'page-item ']" *ngFor="let item of numbers; index as i">
         <a class="page-link" href="#" (click)="changePage(i+1)">{{i+1}}</a>
       </li>
@@ -37,8 +37,11 @@
 </div>
 
 
+<!-- <app-modal [model]="model" (productEditEvent)="loadData()" ></app-modal> -->
+
+
 <!-- Create Modal -->
-<div class="modal fade" id="myModal">
+<!-- <div class="modal fade" id="myModal">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
 
@@ -93,11 +96,11 @@
 
     </div>
   </div>
-</div>
+</div> -->
 
 
 
-<div class="modal fade" id="myModalEdit">
+<!-- <div class="modal fade" id="myModalEdit">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
 
@@ -152,7 +155,7 @@
 
     </div>
   </div>
-</div>
+</div> -->
 
 
 

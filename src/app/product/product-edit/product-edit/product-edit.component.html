@@ -1,0 +1,35 @@
+
+<div class="container">
+  <h2>{{Title}}</h2>
+  <p>The .table class adds basic styling (light padding and horizontal dividers) to a table:</p>
+  <form [formGroup]="formEditProduct">
+    <input type="hidden" formControlName="id" name="id" />
+
+    <div class="form-group">
+      <label for="pwd">Name</label>
+      <input type="text" class="form-control" placeholder="name" id="name" formControlName="name" name="name"
+        required>
+    </div>
+
+    <div class="form-group">
+      <label for="pwd">Description</label>
+      <input type="text" class="form-control" placeholder="description" id="description"
+      formControlName="description" name="description" required >
+    </div>
+
+    <div class="form-group">
+      <label for="pwd">seoAlias</label>
+      <input type="text" class="form-control" placeholder="seoAlias" id="seoAlias" formControlName="seoAlias"
+        name="seoalias" required >
+    </div>
+
+    <div class="form-group">
+      <label for="pwd">Price</label>
+      <input type="number" class="form-control" placeholder="price" id="price" formControlName="price"
+        name="price" required >
+    </div>
+
+    <button type="button" class="btn btn-primary" data-dismiss="modal" [disabled]="!formEditProduct.valid" (click)="saveChange()">Submit</button>
+  </form>
+
+</div>
